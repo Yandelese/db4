@@ -25,11 +25,8 @@ import java.io.PrintWriter;
             PrintWriter out = response.getWriter();
             out.print("<form action='/DB' method='POST'>");
             out.print("Name: <input name='name'> <br> <br> <br>");
-            out.print("Surname: <input name='surname'> <br> <br> <br>");
-            out.print("Age: <input name='age'> <br> <br> <br>");
+            out.print("Exam Points: <input name='exam_points'> <br> <br> <br>");
 
-            out.print(" Male: <input name='gender' type='radio' value='male'>");
-            out.print(" Female: <input name='gender' type='radio' value='female'>");
 
             out.print("<button>Send</button>");
             out.print("</form>");

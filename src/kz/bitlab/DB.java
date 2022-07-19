@@ -19,26 +19,32 @@ import java.io.PrintWriter;
             PrintWriter out = response.getWriter();
 
             String name=request.getParameter("name");
-            String surname=request.getParameter("surname");
-            int age= Integer.parseInt(request.getParameter("age"));
-            String gender=(request.getParameter("gender"));
+            int exampoints= Integer.parseInt(request.getParameter("exam_points"));
+
+            String a=("A");
+            String b=("B");
+            String c=("C");
+            String d=("D");
+            String f=("F");
 
 
-            String status=("Dear");
-            String muzhik=("male");
-            String devushka=("female");
-            int a=18;
 
-            if(age<a && gender.equals(muzhik)){
-                   status="Dude";
-                   gender=muzhik;
-            }else gender=devushka;
+                if(exampoints>=90){
+                    out.print("<h1>"+name+" "+a+" for exam "+"</h1>");
+                }
+                if(exampoints<=89 & exampoints>=75){
+                    out.print("<h1>" +name+" "+b+" for exam "+"</h1>");
+                }
+                if(exampoints<=74 & exampoints>=60){
+                out.print("<h1>"+name+" "+c+" for exam "+"</h1>");
+                }
+                if(exampoints<=59 & exampoints>=50){
+                out.print("<h1>"+name+" "+d+" for exam "+"</h1>");
+                }
+                if(exampoints<=49 ){
+                out.print("<h1>"+name+" "+f+" for exam "+"</h1>");
+            }
 
-            out.print("<h1>"+status+"</h1>");
-            out.print("<h1>"+name+"</h1>");
-            out.print("<h1>"+surname+"</h1>");
-            out.print("<h1>"+age+"</h1>");
-            out.print("<h1>"+gender+"</h1>");
 
         }
 
