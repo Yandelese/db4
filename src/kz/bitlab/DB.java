@@ -20,15 +20,26 @@ import java.io.PrintWriter;
 
             String name=request.getParameter("name");
             String surname=request.getParameter("surname");
-            String food=request.getParameter("selectedvariant");
+            int age= Integer.parseInt(request.getParameter("age"));
+            String gender=(request.getParameter("gender"));
 
+
+            String status=("Dear");
+            String muzhik=("male");
+            String devushka=("female");
+            int a=18;
+
+            if(age<a && gender.equals(muzhik)){
+                   status="Dude";
+                   gender=muzhik;
+            }else gender=devushka;
+
+            out.print("<h1>"+status+"</h1>");
             out.print("<h1>"+name+"</h1>");
             out.print("<h1>"+surname+"</h1>");
-            out.print("<h1>"+food+"</h1>");
+            out.print("<h1>"+age+"</h1>");
+            out.print("<h1>"+gender+"</h1>");
 
-
-
-            System.out.println(name+surname);
         }
 
 
