@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 @WebServlet(value = "/DB")
 
@@ -19,34 +20,30 @@ import java.io.PrintWriter;
             PrintWriter out = response.getWriter();
 
             String name=request.getParameter("name");
-            int exampoints= Integer.parseInt(request.getParameter("exam_points"));
+            String surname=request.getParameter("surname");
+            int salary= Integer.parseInt(request.getParameter("salary"));
+            String club=request.getParameter("selectedvariant");
+            int transferprice= Integer.parseInt(request.getParameter("transfer_price"));
 
-            String a=("A");
-            String b=("B");
-            String c=("C");
-            String d=("D");
-            String f=("F");
+            Footballer footballer=new Footballer(null,name,surname,salary,club,transferprice);
+            footballer.addFootballer(footballer);
+            ArrayList<Footballer>footballerArrayList=new ArrayList<>();
+            footballerArrayList.add(footballer);
 
 
 
-                if(exampoints>=90){
-                    out.print("<h1>"+name+" "+a+" for exam "+"</h1>");
-                }
-                if(exampoints<=89 & exampoints>=75){
-                    out.print("<h1>" +name+" "+b+" for exam "+"</h1>");
-                }
-                if(exampoints<=74 & exampoints>=60){
-                out.print("<h1>"+name+" "+c+" for exam "+"</h1>");
-                }
-                if(exampoints<=59 & exampoints>=50){
-                out.print("<h1>"+name+" "+d+" for exam "+"</h1>");
-                }
-                if(exampoints<=49 ){
-                out.print("<h1>"+name+" "+f+" for exam "+"</h1>");
+            for (Footballer footballer1:footballerArrayList) {
+                out.print("Name: <h1>"+footballer1.name+"</h1> <br> ");
+                out.print("Surname: <h1>"+footballer1.surname+"</h1> <br> ");
+                out.print("Club: <h1>"+footballer1.club+"</h1> <br> ");
+                out.print("Salary: <h1>"+footballer1.salary+"</h1> <br> ");
+                out.print("Transfer Price: <h1>"+footballer1.transferPrice+"</h1> <br>");
+
             }
 
+           footballer.getAllFootballers(footballerArrayList);
+            }
 
-        }
 
 
         @Override
