@@ -47,6 +47,16 @@ import java.util.ArrayList;
 
     }
 
+            public static Items getitembyid(int id) {
+                ArrayList<Items> itemsArrayList = DBManager.getItemsArrayList();
+                for (Items item : itemsArrayList) {
+                    if (item.getId()==id)
+                        return item;
+                    }
+                return null;
+                }
+
+
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

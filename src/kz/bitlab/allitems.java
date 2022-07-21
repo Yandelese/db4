@@ -24,7 +24,6 @@ import java.util.ArrayList;
 
         ArrayList<Items> itemsArrayList=DBManager.getItemsArrayList();
         request.setAttribute("tovary",itemsArrayList);
-        System.out.println("checkpoint");
         request.getRequestDispatcher("/index.jsp").forward(request,response);
 
 

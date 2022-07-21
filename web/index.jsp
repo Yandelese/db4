@@ -58,7 +58,7 @@
                    <td><%=item.getName()%></td>
                    <td><%=item.getPrice()%></td>
                    <td><%=item.getAmount()%></td>
-                   <td><a href="">DETAILS</a> </td>
+                   <td><a href="/Details?itemsid=<%=item.getId()%>">DETAILS</a> </td>
                </tr>
 
                <%
