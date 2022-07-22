@@ -8,24 +8,18 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
 
-@WebServlet(value = "/allitems")
-
-
-        public class allitems  extends HttpServlet {
+@WebServlet(value = "/cinema")
+public class Cinemanews extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
-
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        ArrayList<Items> itemsArrayList=DBManager.getItemsArrayList();
-        request.setAttribute("tovary",itemsArrayList);
-        request.getRequestDispatcher("/index.jsp").forward(request,response);
-
+        ArrayList<News>cinemanews=DBManager.getcinemanews();
+        request.setAttribute("cinemanews",cinemanews);
+        request.getRequestDispatcher("/CinemaNews.jsp").forward(request,response);
 
     }
-        }
+}

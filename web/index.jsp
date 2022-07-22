@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="kz.bitlab.Items" %><%--
+<%@ page import="kz.bitlab.News" %><%--
   Created by IntelliJ IDEA.
   User: Qaira
   Date: 20.07.2022
@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -16,61 +17,36 @@
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
     <title>Title</title>
+
 </head>
 <body>
-        <div>
-            <nav class="navbar navbar-expand-sm bg-dark">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/allitems">BITLAB SHOP</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/allitems">ALL ITEMS</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/additems">ADD ITEMS</a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+<%@include file="header.jsp"%>
 
 
-            <div>
-            <table class="table">
-               <thead>
-               <tr>
-                   <th scope="col">ID</th>
-                   <th scope="col">NAME</th>
-                   <th scope="col">PRICE</th>
-                   <th scope="col">AMOUNT</th>
-                   <th scope="col">DETAILS</th>
-               </tr>
-               </thead>
-               <tbody>
 
-               <%ArrayList<Items> itemsArrayList= (ArrayList<Items>) request.getAttribute("tovary");
-               if(itemsArrayList!=null){
-                   for (Items item:itemsArrayList) {
-               %>
+            <%ArrayList<News> newsArrayList= (ArrayList<News>) request.getAttribute("newslist");
+                if(newsArrayList!=null){
+                    for (News news:newsArrayList) {
+            %>
 
-               <tr>
-                   <th scope="row"><%=item.getId()%></th>
-                   <td><%=item.getName()%></td>
-                   <td><%=item.getPrice()%></td>
-                   <td><%=item.getAmount()%></td>
-                   <td><a href="/Details?itemsid=<%=item.getId()%>">DETAILS</a> </td>
-               </tr>
+
+
+
+               <div class="card">
+                   <div class="card-header">
+                       <%=news.getCategory()%>
+                   </div>
+                   <div class="card-body">
+                       <h6 class="card-title"><%=news.getTitle()%></h6>
+                       <h6 class="card-title"><%=news.getContent()%></h6>
+                       <h6 class="card-title"><%=news.getAuthor()%></h6>
+                   </div>
+               </div>
 
                <%
                    }
                    }
                %>
-
-
-
-
-               </tbody>
-           </table>
 
        </div>
 
