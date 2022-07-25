@@ -6,26 +6,24 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 
-@WebServlet(value = "/home")
+@WebServlet(value = "/taskadding")
 
-    public class HomeServlet extends HttpServlet {
+        public class taskadding extends HttpServlet {
 
         @Override
         protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+                String task=request.getParameter("task");
+                String description=request.getParameter("description");
+                String deadline=request.getParameter("deadline");
+                Task task1=new Task(null,task,description,deadline);
+                DBmanager.addtask(task1);
+                response.sendRedirect("/home");
         }
-
 
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            ArrayList<Task>taskArrayList=DBmanager.getalltasks();
-            request.setAttribute("spisokdel",taskArrayList);
-            request.getRequestDispatcher("/index.jsp").forward(request,response);
-            System.out.println("qqqq");
+                request.getRequestDispatcher("/taskadding.jsp").forward(request,response);
         }
-
-    }
-
+}

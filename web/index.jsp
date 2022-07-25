@@ -1,13 +1,6 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="kz.bitlab.News" %><%--
-  Created by IntelliJ IDEA.
-  User: Qaira
-  Date: 20.07.2022
-  Time: 11:15
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="kz.bitlab.Task" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <html>
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -16,39 +9,50 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
             crossorigin="anonymous"></script>
-    <title>Title</title>
-
+    <%@include file="header.jsp"%>
 </head>
+
 <body>
-<%@include file="header.jsp"%>
+           <br>
+           <div><a href="/taskadding" class="btn btn-primary">Add-Task</a></div>
+
+           <div>
+               <table class="table">
+                   <thead>
+                   <tr>
+                       <th scope="col">#</th>
+                       <th scope="col">Name</th>
+                       <th scope="col">Description</th>
+                       <th scope="col">Deadline</th>
+                       <th scope="col">Details</th>
+                   </tr>
+                   </thead>
+                   <tbody>
+
+                   <%
+                       ArrayList<Task>taskArrayList= (ArrayList<Task>) request.getAttribute("spisokdel");
+                       if(taskArrayList!=null){
+                           for (Task task:taskArrayList) {
+                   %>
+                   <tr>
+                       <th scope="row"><%=task.getId()%></th>
+                       <td><%=task.getName()%>></td>
+                       <td><%=task.getDescription()%></td>
+                       <td><%=task.getDeadlineDate()%></td>
+                       <td><a href="/details?id=<%=task.getId()%>" class="btn btn-primary">Details</a></td>
+                   </tr>
+
+                   <%
+                           }
+                       }
+                   %>
+                   </tbody>
+               </table>
+           </div>
 
 
 
-            <%ArrayList<News> newsArrayList= (ArrayList<News>) request.getAttribute("newslist");
-                if(newsArrayList!=null){
-                    for (News news:newsArrayList) {
-            %>
 
-
-
-
-               <div class="card">
-                   <div class="card-header">
-                       <%=news.getCategory()%>
-                   </div>
-                   <div class="card-body">
-                       <h6 class="card-title"><%=news.getTitle()%></h6>
-                       <h6 class="card-title"><%=news.getContent()%></h6>
-                       <h6 class="card-title"><%=news.getAuthor()%></h6>
-                   </div>
-               </div>
-
-               <%
-                   }
-                   }
-               %>
-
-       </div>
 
 </body>
 </html>

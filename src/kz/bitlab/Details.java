@@ -6,20 +6,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.ArrayList;
 
-@WebServlet(value = "/sport")
-public class SportNews extends HttpServlet {
+@WebServlet(value = "/details")
+                public class Details extends HttpServlet {
+
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
     }
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<News>sportsnews=DBManager.getsportsnews();
-        request.setAttribute("sportnews",sportsnews);
-        request.getRequestDispatcher("/SportNews.jsp").forward(request,response);
-
+        Long id= Long.valueOf(request.getParameter("id"));
+        Task task=DBmanager.gettaskbyid(id);
+        request.setAttribute("task",task);
+        request.getRequestDispatcher("/Details.jsp").forward(request,response);
     }
 }
