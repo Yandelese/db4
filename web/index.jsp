@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="kz.bitlab.Task" %>
+<%@ page import="kz.bitlab.Student" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,32 +14,33 @@
 
 <body>
            <br>
-           <div><a href="/taskadding" class="btn btn-primary">Add-Task</a></div>
+           <div><a href="/addstudent" class="btn btn-primary">Add-Student</a></div>
 
            <div>
                <table class="table">
                    <thead>
                    <tr>
-                       <th scope="col">#</th>
+                       <th scope="col">ID</th>
                        <th scope="col">Name</th>
-                       <th scope="col">Description</th>
-                       <th scope="col">Deadline</th>
-                       <th scope="col">Details</th>
+                       <th scope="col">Surname</th>
+                       <th scope="col">Birthdate</th>
+                       <th scope="col">City</th>
                    </tr>
                    </thead>
                    <tbody>
 
                    <%
-                       ArrayList<Task>taskArrayList= (ArrayList<Task>) request.getAttribute("spisokdel");
-                       if(taskArrayList!=null){
-                           for (Task task:taskArrayList) {
+                       ArrayList<Student>studentArrayList= (ArrayList<Student>) request.getAttribute("studentter");
+                       if(studentArrayList!=null){
+                           for (Student student:studentArrayList) {
                    %>
                    <tr>
-                       <th scope="row"><%=task.getId()%></th>
-                       <td><%=task.getName()%>></td>
-                       <td><%=task.getDescription()%></td>
-                       <td><%=task.getDeadlineDate()%></td>
-                       <td><a href="/details?id=<%=task.getId()%>" class="btn btn-primary">Details</a></td>
+                       <th scope="row"><%=student.getId()%></th>
+                       <td><%=student.getName()%></td>
+                       <td><%=student.getSurname()%></td>
+                       <td><%=student.getBirthdate()%></td>
+                       <td><%=student.getCity()%></td>
+<%--                       <td><a href="/details?id=" class="btn btn-primary">Details</a></td>--%>
                    </tr>
 
                    <%
@@ -49,10 +50,5 @@
                    </tbody>
                </table>
            </div>
-
-
-
-
-
 </body>
 </html>

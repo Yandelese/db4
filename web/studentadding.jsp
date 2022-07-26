@@ -16,18 +16,24 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-            <form action="/taskadding" method="post">
+            <form action="/addstudent" method="post">
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Task" name="task">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Name" name="name">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputEmail2">Surname</label>
+                    <input type="text" class="form-control" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Surname" name="surname">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Birthday</label>
+                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Birthday" name="birthday">
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputPassword1">Description</label>
-                    <input type="text" class="form-control" id="exampleInputPassword1" placeholder="Description" name="description">
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword2">Deadline</label>
-                    <input type="text" class="form-control" id="exampleInputPassword2" placeholder="Deadline" name="deadline">
+                    <label for="exampleInputPassword2">City</label>
+                    <input type="text" class="form-control" id="exampleInputPassword2" placeholder="City" name="city">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-primary">Submit</button>

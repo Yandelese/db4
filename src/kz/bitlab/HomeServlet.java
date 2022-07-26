@@ -21,10 +21,10 @@ import java.util.ArrayList;
 
         @Override
         protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-            ArrayList<Task>taskArrayList=DBmanager.getalltasks();
-            request.setAttribute("spisokdel",taskArrayList);
+            ArrayList<Student>studentArrayList=DBmanager2.getallstudents();
+            System.out.println(studentArrayList);
+            request.setAttribute("studentter",studentArrayList);
             request.getRequestDispatcher("/index.jsp").forward(request,response);
-            System.out.println("qqqq");
         }
 
     }
