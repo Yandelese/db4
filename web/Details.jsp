@@ -27,7 +27,7 @@
                             <p class="card-text"><%=student.getBirthdate()%></p>
                             <p class="card-text"><%=student.getCity()%></p>
                             <a href="/edit?id=<%=student.getId()%>" class="btn btn-primary">Edit</a>
-                            <a href="/delete?id=<%=student.getId()%>" class="btn btn-primary">Delete</a>
+                            <a href="/udalenie?qq=<%=student.getId()%>" class="btn btn-primary">Delete</a>
 
                         </div>
                     </div>

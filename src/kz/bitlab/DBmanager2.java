@@ -106,18 +106,18 @@ public class DBmanager2  {
 
                 }
 
-//                public static void deletestudentbyid(Long id){
-//                    try {
-//                        PreparedStatement statement= connection.prepareStatement("DELETE * FROM student WHERE id=?");
-//                        statement.setLong(1,id);
-//                        statement.executeUpdate();
-//                        statement.close();
-//
-//                    } catch (Exception e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                }
+                public static void deletestudentbyid(Long id){
+                    try {
+                        PreparedStatement statement= connection.prepareStatement("DELETE FROM student WHERE id=?");
+                        statement.setLong(1,id);
+                        statement.executeUpdate();
+                        statement.close();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+                }
         }
 
 
