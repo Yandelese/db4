@@ -85,4 +85,39 @@ public class DBmanager2  {
                 }
                     return student;
                 }
-            }
+
+                public static void updatestudent(Student student) {
+                    try {
+                    PreparedStatement statement= connection.prepareStatement("UPDATE student SET name=?,surname=?,birthday=?,city=? WHERE id=?");
+
+                        statement.setString(1,student.getName());
+                        statement.setString(2,student.getSurname());
+                        statement.setString(3,student.getBirthdate());
+                        statement.setString(4,student.getCity());
+                        statement.setLong(5,student.getId());
+
+                        statement.executeUpdate();
+                        statement.close();
+
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+
+
+                }
+
+//                public static void deletestudentbyid(Long id){
+//                    try {
+//                        PreparedStatement statement= connection.prepareStatement("DELETE * FROM student WHERE id=?");
+//                        statement.setLong(1,id);
+//                        statement.executeUpdate();
+//                        statement.close();
+//
+//                    } catch (Exception e) {
+//                        e.printStackTrace();
+//                    }
+//
+//                }
+        }
+
+
