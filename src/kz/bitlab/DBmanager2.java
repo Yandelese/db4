@@ -62,5 +62,27 @@ public class DBmanager2  {
                 {e.printStackTrace();}
                 }
 
+                public static Student getstudentbyid(Long id){
+                    Student student = null;
+                try {
+                    PreparedStatement statement= connection.prepareStatement("SELECT * FROM student WHERE id=?");
+                    statement.setLong(1,id);
+                    ResultSet resultSet= statement.executeQuery();
 
+                    if(resultSet.next()){
+                        Long idd=resultSet.getLong("id");
+                        String name= resultSet.getString("name");
+                        String surname=resultSet.getString("surname");
+                        String birthdate=resultSet.getString("birthday");
+                        String city=resultSet.getString("city");
+                        student=new Student(idd,name,surname,birthdate,city);
+                    }
+
+
+                    statement.close();
+                }catch (Exception e){
+                e.printStackTrace();
+                }
+                    return student;
+                }
             }

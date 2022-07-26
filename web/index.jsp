@@ -40,7 +40,7 @@
                        <td><%=student.getSurname()%></td>
                        <td><%=student.getBirthdate()%></td>
                        <td><%=student.getCity()%></td>
-<%--                       <td><a href="/details?id=" class="btn btn-primary">Details</a></td>--%>
+                       <td><a href="/details?id=<%=student.getId()%>" class="btn btn-primary">Details</a></td>
                    </tr>
 
                    <%
