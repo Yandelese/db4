@@ -1,5 +1,5 @@
 <%@ page import="java.util.ArrayList" %>
-<%@ page import="kz.bitlab.Student" %>
+<%@ page import="kz.bitlab.Items" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -14,7 +14,7 @@
 
 <body>
            <br>
-           <div><a href="/addstudent" class="btn btn-primary">Add-Student</a></div>
+<%--           <div><a href="/addstudent" class="btn btn-primary">Add-Student</a></div>--%>
 
            <div>
                <table class="table">
@@ -22,25 +22,22 @@
                    <tr>
                        <th scope="col">ID</th>
                        <th scope="col">Name</th>
-                       <th scope="col">Surname</th>
-                       <th scope="col">Birthdate</th>
-                       <th scope="col">City</th>
+                       <th scope="col">Description</th>
+                       <th scope="col">Price</th>
                    </tr>
                    </thead>
                    <tbody>
 
                    <%
-                       ArrayList<Student>studentArrayList= (ArrayList<Student>) request.getAttribute("studentter");
-                       if(studentArrayList!=null){
-                           for (Student student:studentArrayList) {
+                       ArrayList<Items>itemsArrayList= (ArrayList<Items>) request.getAttribute("items");
+                       if(itemsArrayList!=null){
+                           for (Items items:itemsArrayList) {
                    %>
                    <tr>
-                       <th scope="row"><%=student.getId()%></th>
-                       <td><%=student.getName()%></td>
-                       <td><%=student.getSurname()%></td>
-                       <td><%=student.getBirthdate()%></td>
-                       <td><%=student.getCity()%></td>
-                       <td><a href="/details?id=<%=student.getId()%>" class="btn btn-primary">Details</a></td>
+                       <th scope="row"><%=items.getId()%></th>
+                       <td><%=items.getName()%></td>
+                       <td><%=items.getDescription()%></td>
+                       <td><%=items.getPrice()%></td>
                    </tr>
 
                    <%
